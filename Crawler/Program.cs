@@ -12,7 +12,7 @@
         {
             try
             {
-                var manager = new DropBoxManager(null);
+                var manager = Global.Container.GetInstance<IDropBoxManager>();
                 manager.Authenticate();
 
                 var data = manager.Crawl(args);
@@ -24,5 +24,7 @@
                 Log.Error(ex);
             }
         }
+
+
     }
 }
