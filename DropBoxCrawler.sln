@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawler", "Crawler\Crawler.csproj", "{2DFBE938-F838-4309-A00A-47A0C41B90DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{D315AEC7-E2A8-4AF6-9C8A-38AD8D55E86C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2DFBE938-F838-4309-A00A-47A0C41B90DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DFBE938-F838-4309-A00A-47A0C41B90DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DFBE938-F838-4309-A00A-47A0C41B90DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DFBE938-F838-4309-A00A-47A0C41B90DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D315AEC7-E2A8-4AF6-9C8A-38AD8D55E86C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D315AEC7-E2A8-4AF6-9C8A-38AD8D55E86C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D315AEC7-E2A8-4AF6-9C8A-38AD8D55E86C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D315AEC7-E2A8-4AF6-9C8A-38AD8D55E86C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
