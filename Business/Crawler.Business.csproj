@@ -7,8 +7,8 @@
     <ProjectGuid>{D315AEC7-E2A8-4AF6-9C8A-38AD8D55E86C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Business</RootNamespace>
-    <AssemblyName>Business</AssemblyName>
+    <RootNamespace>Crawler.Business</RootNamespace>
+    <AssemblyName>Crawler.Business</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

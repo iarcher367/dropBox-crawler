@@ -1,4 +1,4 @@
-﻿namespace DropBoxCrawler
+﻿namespace Crawler.Console
 {
     using Business;
     using Business.Rest;

@@ -1,4 +1,4 @@
-﻿namespace Business.Rest
+﻿namespace Crawler.Business.Rest
 {
     using RestSharp;
 

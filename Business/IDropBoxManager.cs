@@ -1,4 +1,4 @@
-﻿namespace Business
+﻿namespace Crawler.Business
 {
     public interface IDropBoxManager
     {

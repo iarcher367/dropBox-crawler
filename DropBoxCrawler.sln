@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawler", "Crawler\Crawler.csproj", "{2DFBE938-F838-4309-A00A-47A0C41B90DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawler.Console", "Crawler\Crawler.Console.csproj", "{2DFBE938-F838-4309-A00A-47A0C41B90DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{D315AEC7-E2A8-4AF6-9C8A-38AD8D55E86C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawler.Business", "Business\Crawler.Business.csproj", "{D315AEC7-E2A8-4AF6-9C8A-38AD8D55E86C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

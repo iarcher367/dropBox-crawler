@@ -1,4 +1,4 @@
-﻿namespace Business
+﻿namespace Crawler.Business
 {
     public class DropBoxManager : IDropBoxManager
     {
@@ -11,7 +11,8 @@
 
         public void Authenticate()
         {
-            
+            // response.Content
+            // response.ErrorException
         }
 
         public string Crawl(string[] emails)

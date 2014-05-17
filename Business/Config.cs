@@ -1,4 +1,4 @@
-﻿namespace Business
+﻿namespace Crawler.Business
 {
     using System;
     using System.Collections.Generic;

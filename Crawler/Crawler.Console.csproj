@@ -7,8 +7,8 @@
     <ProjectGuid>{2DFBE938-F838-4309-A00A-47A0C41B90DC}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DropBoxCrawler</RootNamespace>
-    <AssemblyName>DropBoxCrawler</AssemblyName>
+    <RootNamespace>Crawler.Console</RootNamespace>
+    <AssemblyName>Crawler.Console</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -60,9 +60,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business\Business.csproj">
+    <ProjectReference Include="..\Business\Crawler.Business.csproj">
       <Project>{d315aec7-e2a8-4af6-9c8a-38ad8d55e86c}</Project>
-      <Name>Business</Name>
+      <Name>Crawler.Business</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
