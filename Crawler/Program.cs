@@ -24,6 +24,12 @@
 
                     var code = PromptForOAuthCode(email);
                     var token = manager.AcquireBearerToken(code);
+                    var report = manager.Crawl(token);
+
+                    Log.InfoFormat("Report for {0}: \n{1}", email, report);
+
+                    Console.WriteLine(report);
+                    Console.ReadLine();
                 }
             }
             catch (Exception ex)

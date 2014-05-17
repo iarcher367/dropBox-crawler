@@ -50,14 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Analytics.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="DropBoxManager.cs" />
     <Compile Include="DropBoxProxy.cs" />
+    <Compile Include="Engines\AnalyticsEngine.cs" />
+    <Compile Include="Engines\IAnalyticsEngine.cs" />
     <Compile Include="IConfig.cs" />
     <Compile Include="IDropBoxManager.cs" />
     <Compile Include="IDropBoxProxy.cs" />
-    <Compile Include="IOAuthEngine.cs" />
-    <Compile Include="OAuthEngine.cs" />
+    <Compile Include="Engines\IOAuthEngine.cs" />
+    <Compile Include="Engines\OAuthEngine.cs" />
+    <Compile Include="Models\Metadata.cs" />
     <Compile Include="Rest\IRestProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rest\RestClient.cs" />

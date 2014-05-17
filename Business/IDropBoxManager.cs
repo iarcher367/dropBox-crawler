@@ -4,6 +4,6 @@
     {
         string BuildAuthorizeUrl();
         string AcquireBearerToken(string code);
-        string Crawl(string email);
+        string Crawl(string token);
     }
 }

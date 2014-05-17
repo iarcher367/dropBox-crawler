@@ -1,4 +1,4 @@
-﻿namespace Crawler.Business
+﻿namespace Crawler.Business.Engines
 {
     public interface IOAuthEngine
     {

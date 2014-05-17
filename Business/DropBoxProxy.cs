@@ -1,8 +1,8 @@
 ﻿namespace Crawler.Business
 {
-    using System;
     using Newtonsoft.Json.Linq;
     using Rest;
+    using System;
     using System.Collections.Generic;
 
     public sealed class DropBoxProxy : IDropBoxProxy
@@ -15,6 +15,22 @@
             _config = config;
 		    _restProxy = restProxy;
 	    }
+
+        public string GetMetadata(string token, string path)
+        {
+            const string resource = "/1/metadata/{root}/{path}";
+
+            var urlSegments = new
+            {
+                root = "dropbox",
+                path
+            };
+
+            var response = _restProxy.Get(token, resource, urlSegments);
+            var contents = JObject.Parse(response.Content).SelectToken("contents");
+
+            return contents.ToString();
+        }
 
         public string PostToken(string code)
         {
@@ -36,16 +52,6 @@
                 throw new Exception("Unable to acquire bearer token. Probable cause: code has expired");
 
             return token.ToString();
-        }
-
-        // TODO: GetMetadata() - handle errors 304, 406
-        public string GetMetadata(string path)
-        {
-            object obj = path;  // TODO: fix
-            var response = _restProxy.Get("/1/metadata/{root}/{path}", obj);
-
-
-            return null;
         }
     }
 }

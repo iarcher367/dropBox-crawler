@@ -1,18 +1,23 @@
 ﻿namespace Crawler.Business
 {
+    using Engines;
     using log4net;
+    using Models;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    using System;
 
     public class DropBoxManager : IDropBoxManager
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof (DropBoxManager));
 
-        private readonly IConfig _config;
+        private readonly IAnalyticsEngine _analyticsEngine;
         private readonly IOAuthEngine _oAuthEngine;
         private readonly IDropBoxProxy _dropBoxProxy;
 	
-	    public DropBoxManager(IDropBoxProxy dropBoxProxy, IOAuthEngine oAuthEngine, IConfig config)
+	    public DropBoxManager(IDropBoxProxy dropBoxProxy, IOAuthEngine oAuthEngine, IAnalyticsEngine analyticsEngine)
 	    {
-	        _config = config;
+	        _analyticsEngine = analyticsEngine;
 	        _oAuthEngine = oAuthEngine;
 	        _dropBoxProxy = dropBoxProxy;
 	    }
@@ -35,9 +40,42 @@
             return token;
         }
 
-        public string Crawl(string email)
+        public string Crawl(string token)
         {
-            return null;
+            var analytics = new Analytics();
+
+            Log.InfoFormat("Crawling account for token {0}", token);
+
+            AnalyzeFolder(token, analytics, String.Empty);
+
+            return _analyticsEngine.GenerateReport(analytics);
+        }
+
+        private void AnalyzeFolder(string token, Analytics analytics, string path)
+        {
+            var metadata = _dropBoxProxy.GetMetadata(token, path);
+
+            foreach (var obj in JArray.Parse(metadata))
+            {
+                dynamic item = JsonConvert.DeserializeObject(obj.ToString());
+
+                Log.DebugFormat("{0} processing {1}", token, item["path"].Value);
+
+                if (item[Metadata.IsDir].Value)
+                {
+                    analytics.FolderCount++;
+
+                    AnalyzeFolder(token, analytics, item[Metadata.Path].Value);
+                }
+                else
+                {
+                    analytics.FileCount++;
+
+                    _analyticsEngine.TrackFileSizeRange(analytics, item[Metadata.Path].Value, Convert.ToInt64(item[Metadata.Bytes].Value));
+
+                    _analyticsEngine.TrackMimeTypes(analytics, item[Metadata.MimeType].Value);
+                }
+            }
         }
     }
 }

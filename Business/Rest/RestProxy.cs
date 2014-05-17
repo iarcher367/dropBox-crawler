@@ -1,24 +1,26 @@
 ﻿namespace Crawler.Business.Rest
 {
+    using log4net;
+    using RestSharp;
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using log4net;
-    using RestSharp;
 
     public class RestProxy : IRestProxy
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(DropBoxManager));
 
+        private readonly IConfig _config;
         private readonly IRestClient _restClient;
 
         public RestProxy(IRestClient restClient, IConfig config)
         {
+            _config = config;
             _restClient = restClient;
             _restClient.BaseUrl = config.BaseUrl;
         }
 
-        public IRestResponse Get(string resource, object urlSegments)
+        public IRestResponse Get(string token, string resource, object urlSegments)
         {
             var request = new RestRequest(resource, Method.GET)
             {
@@ -26,6 +28,9 @@
             };
 
             request.AddUrlSegments(urlSegments);
+
+            if (!String.IsNullOrEmpty(token))
+                request.AddHeader(_config.Authorization.Key, String.Format(_config.Authorization.Value, token));
 
             return _restClient.Execute(request);
         }

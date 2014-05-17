@@ -1,6 +1,7 @@
 ﻿namespace Crawler.Console
 {
     using Business;
+    using Business.Engines;
     using Business.Rest;
     using RestSharp;
     using SimpleInjector;
@@ -14,6 +15,7 @@
             Container = new Container();
 
             Container.RegisterSingle<IConfig, Config>();
+            Container.Register<IAnalyticsEngine, AnalyticsEngine>();
             Container.Register<IDropBoxManager, DropBoxManager>();
             Container.Register<IDropBoxProxy, DropBoxProxy>();
             Container.Register<IOAuthEngine, OAuthEngine>();

@@ -1,8 +1,9 @@
-﻿namespace Crawler.Business
+﻿namespace Crawler.Business.Engines
 {
-    using RestSharp;
     using System;
     using System.Collections.Generic;
+    using Engines;
+    using RestSharp;
 
     public class OAuthEngine : IOAuthEngine
     {
