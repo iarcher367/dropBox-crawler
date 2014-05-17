@@ -4,7 +4,7 @@
 
     public interface IConfig
     {
-        KeyValuePair<string, string> AuthHeader { get; }
+        KeyValuePair<string, string> Authorization { get; }
         string BaseUrl { get; }
         string BearerToken { get; set; }
         KeyValuePair<string, string> ClientId { get; }

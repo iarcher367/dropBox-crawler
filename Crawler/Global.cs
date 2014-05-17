@@ -16,6 +16,7 @@
             Container.RegisterSingle<IConfig, Config>();
             Container.Register<IDropBoxManager, DropBoxManager>();
             Container.Register<IDropBoxProxy, DropBoxProxy>();
+            Container.Register<IOAuthEngine, OAuthEngine>();
             Container.Register<IRestClient, Business.Rest.RestClient>();
             Container.Register<IRestProxy, RestProxy>();
         }

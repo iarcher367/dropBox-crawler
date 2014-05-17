@@ -6,13 +6,9 @@
 
     public class Config : IConfig
     {
-        public KeyValuePair<string, string> AuthHeader
+        public KeyValuePair<string, string> Authorization
         {
-            get
-            {
-                return new KeyValuePair<string, string>("Authorization",
-                    String.Format("Bearer {0}", BearerToken));
-            }
+            get { return new KeyValuePair<string, string>("Authorization", String.Format("Bearer {0}", BearerToken)); }
         }
 
         public string BaseUrl { get { return ConfigurationManager.AppSettings["BaseUrl"]; } }

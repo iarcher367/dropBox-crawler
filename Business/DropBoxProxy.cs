@@ -11,11 +11,6 @@
 		    _restProxy = restProxy;
 	    }
 
-        public string RequestToken()
-        {
-            return null;
-        }
-
         // TODO: GetMetadata() - handle errors 304, 406
         public string GetMetadata(string path)
         {

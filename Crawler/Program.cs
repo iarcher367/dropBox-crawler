@@ -3,6 +3,7 @@
     using Business;
     using log4net;
     using System;
+    using System.Diagnostics;
 
     internal class Program
     {
@@ -13,7 +14,8 @@
             try
             {
                 var manager = Global.Container.GetInstance<IDropBoxManager>();
-                manager.Authenticate();
+                var url = manager.GetAuthorizeUrl();
+                Process.Start(url);
 
                 var data = manager.Crawl(args);
 

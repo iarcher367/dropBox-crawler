@@ -2,17 +2,20 @@
 {
     public class DropBoxManager : IDropBoxManager
     {
-	    private readonly IDropBoxProxy _proxy;
+        private readonly IConfig _config;
+        private readonly IOAuthEngine _oAuthEngine;
+        private readonly IDropBoxProxy _proxy;
 	
-	    public DropBoxManager(IDropBoxProxy proxy)
+	    public DropBoxManager(IDropBoxProxy proxy, IOAuthEngine oAuthEngine, IConfig config)
 	    {
+	        _config = config;
+	        _oAuthEngine = oAuthEngine;
 	        _proxy = proxy;
 	    }
 
-        public void Authenticate()
+        public string GetAuthorizeUrl()
         {
-            // response.Content
-            // response.ErrorException
+            return _oAuthEngine.GetAuthorizeUrl();
         }
 
         public string Crawl(string[] emails)

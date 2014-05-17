@@ -12,7 +12,8 @@
                 .Where(x => IsAllowedType(x.PropertyType))
                 .Select(x => new {x.Name, Value = x.GetValue(parameters, null)});
 
-            pairs.Select(x => request.AddUrlSegment(x.Name, x.Value.ToString()));
+            foreach (var pair in pairs)
+                request.AddUrlSegment(pair.Name, pair.Value.ToString());
 
             return request;
         }

@@ -1,8 +1,7 @@
 ﻿namespace Crawler.Business
 {
-    public interface IDropBoxManager
+    public interface IOAuthEngine
     {
         string GetAuthorizeUrl();
-        string Crawl(string[] emails);
     }
 }
