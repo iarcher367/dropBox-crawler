@@ -4,10 +4,12 @@
 
     public interface IConfig
     {
-        string ApiKey { get; }
-        string ApiSecret { get; }
         KeyValuePair<string, string> AuthHeader { get; }
         string BaseUrl { get; }
         string BearerToken { get; set; }
+        KeyValuePair<string, string> ClientId { get; }
+        KeyValuePair<string, string> ClientSecret { get; }
+        string OAuth2Endpoint { get; }
+        KeyValuePair<string, string> RedirectUri { get; }
     }
 }

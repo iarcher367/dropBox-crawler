@@ -2,6 +2,7 @@
 {
     using Business;
     using Business.Rest;
+    using RestSharp;
     using SimpleInjector;
 
     internal static class Global
@@ -15,6 +16,7 @@
             Container.RegisterSingle<IConfig, Config>();
             Container.Register<IDropBoxManager, DropBoxManager>();
             Container.Register<IDropBoxProxy, DropBoxProxy>();
+            Container.Register<IRestClient, Business.Rest.RestClient>();
             Container.Register<IRestProxy, RestProxy>();
         }
     }
