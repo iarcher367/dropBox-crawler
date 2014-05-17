@@ -2,5 +2,6 @@
 {
     public interface IDropBoxProxy
     {
+        string PostToken(string code);
     }
 }

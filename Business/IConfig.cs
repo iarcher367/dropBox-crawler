@@ -6,7 +6,6 @@
     {
         KeyValuePair<string, string> Authorization { get; }
         string BaseUrl { get; }
-        string BearerToken { get; set; }
         KeyValuePair<string, string> ClientId { get; }
         KeyValuePair<string, string> ClientSecret { get; }
         string OAuth2Endpoint { get; }

@@ -19,6 +19,8 @@
             Container.Register<IOAuthEngine, OAuthEngine>();
             Container.Register<IRestClient, Business.Rest.RestClient>();
             Container.Register<IRestProxy, RestProxy>();
+
+            log4net.Config.XmlConfigurator.Configure();
         }
     }
 }

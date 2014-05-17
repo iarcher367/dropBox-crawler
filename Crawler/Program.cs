@@ -14,12 +14,17 @@
             try
             {
                 var manager = Global.Container.GetInstance<IDropBoxManager>();
-                var url = manager.GetAuthorizeUrl();
-                Process.Start(url);
+                var url = manager.BuildAuthorizeUrl();
 
-                var data = manager.Crawl(args);
+                foreach (var email in args)
+                {
+                    Log.InfoFormat("{0} : Initializing crawler", email);
 
-                Console.WriteLine(data);
+                    Process.Start(url);
+
+                    var code = PromptForOAuthCode(email);
+                    var token = manager.AcquireBearerToken(code);
+                }
             }
             catch (Exception ex)
             {
@@ -27,6 +32,14 @@
             }
         }
 
+        private static string PromptForOAuthCode(string email)
+        {
+            Console.Write("OAuth code for {0}? ", email);
+            var code = Console.ReadLine();
 
+            Log.DebugFormat("{0} : Received OAuth code flow code {1}", email, code);
+
+            return code;
+        }
     }
 }
