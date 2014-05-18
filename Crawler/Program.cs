@@ -3,7 +3,9 @@
     using Business;
     using log4net;
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics;
+    using System.Threading.Tasks;
 
     internal class Program
     {
@@ -13,12 +15,13 @@
         {
             try
             {
+                var accounts = new Dictionary<string, string>();
                 var manager = Global.Container.GetInstance<IDropBoxManager>();
                 var url = manager.BuildAuthorizeUrl();
 
                 foreach (var email in args)
                 {
-                    Log.InfoFormat("{0} : Initializing crawler", email);
+                    Log.InfoFormat("Initializing crawler for {0}", email);
 
                     Process.Start(url);
 
@@ -26,8 +29,14 @@
 
                     var token = manager.AcquireBearerToken(code);
 
-                    Console.WriteLine(manager.Crawl(token));
+                    accounts.Add(email, token);
                 }
+
+                Parallel.ForEach(accounts, x =>
+                    Console.WriteLine("Processed completed for {0}. Summary: \n{1}",
+                        x.Key,
+                        manager.Crawl(x.Value))
+                );
 
                 Console.ReadLine();
             }
