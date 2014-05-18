@@ -2,6 +2,6 @@
 {
     public interface IOAuthEngine
     {
-        string GetAuthorizeUrl();
+        string BuildAuthorizeUrl();
     }
 }

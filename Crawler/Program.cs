@@ -23,14 +23,13 @@
                     Process.Start(url);
 
                     var code = PromptForOAuthCode(email);
+
                     var token = manager.AcquireBearerToken(code);
-                    var report = manager.Crawl(token);
 
-                    Log.InfoFormat("Report for {0}: \n{1}", email, report);
-
-                    Console.WriteLine(report);
-                    Console.ReadLine();
+                    Console.WriteLine(manager.Crawl(token));
                 }
+
+                Console.ReadLine();
             }
             catch (Exception ex)
             {
@@ -43,7 +42,7 @@
             Console.Write("OAuth code for {0}? ", email);
             var code = Console.ReadLine();
 
-            Log.DebugFormat("{0} : Received OAuth code flow code {1}", email, code);
+            Log.InfoFormat("{0} : Received OAuth code flow code {1}", email, code);
 
             return code;
         }

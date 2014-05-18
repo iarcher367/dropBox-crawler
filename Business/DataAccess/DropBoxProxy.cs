@@ -1,5 +1,6 @@
-﻿namespace Crawler.Business
+﻿namespace Crawler.Business.DataAccess
 {
+    using log4net;
     using Newtonsoft.Json.Linq;
     using Rest;
     using System;
@@ -7,6 +8,8 @@
 
     public sealed class DropBoxProxy : IDropBoxProxy
     {
+        private static readonly ILog Log = LogManager.GetLogger(typeof(DropBoxProxy));
+
         private readonly IConfig _config;
 	    private readonly IRestProxy _restProxy;
 
@@ -27,9 +30,11 @@
             };
 
             var response = _restProxy.Get(token, resource, urlSegments);
-            var contents = JObject.Parse(response.Content).SelectToken("contents");
+            var contents = JObject.Parse(response.Content).SelectToken("contents").ToString();
 
-            return contents.ToString();
+            Log.DebugFormat("Retrieved account contents: {0}", contents);
+
+            return contents;
         }
 
         public string PostToken(string code)
@@ -50,6 +55,8 @@
 
             if (token == null)
                 throw new Exception("Unable to acquire bearer token. Probable cause: code has expired");
+
+            Log.DebugFormat("Retrieved token: {0}", token);
 
             return token.ToString();
         }

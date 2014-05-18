@@ -1,6 +1,7 @@
 ﻿namespace Crawler.Console
 {
     using Business;
+    using Business.DataAccess;
     using Business.Engines;
     using Business.Rest;
     using RestSharp;

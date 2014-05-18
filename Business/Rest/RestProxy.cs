@@ -8,7 +8,7 @@
 
     public class RestProxy : IRestProxy
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof(DropBoxManager));
+        private static readonly ILog Log = LogManager.GetLogger(typeof(RestProxy));
 
         private readonly IConfig _config;
         private readonly IRestClient _restClient;
@@ -31,6 +31,8 @@
 
             if (!String.IsNullOrEmpty(token))
                 request.AddHeader(_config.Authorization.Key, String.Format(_config.Authorization.Value, token));
+
+            Log.DebugFormat("Generated GET to {0}", _restClient.BuildUri(request));
 
             return _restClient.Execute(request);
         }

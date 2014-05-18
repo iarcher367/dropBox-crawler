@@ -1,7 +1,7 @@
 ﻿namespace Crawler.Business.Rest
 {
-    using System.Collections.Generic;
     using RestSharp;
+    using System.Collections.Generic;
 
     public interface IRestProxy
     {

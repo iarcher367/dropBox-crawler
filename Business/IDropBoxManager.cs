@@ -2,8 +2,8 @@
 {
     public interface IDropBoxManager
     {
-        string BuildAuthorizeUrl();
         string AcquireBearerToken(string code);
+        string BuildAuthorizeUrl();
         string Crawl(string token);
     }
 }

@@ -11,10 +11,10 @@
         public string LargestFilePath { get; set; }
         public Int64 LargestFileSize { get; set; }
 
+        public Dictionary<string, int> MimeTypes { get; private set; }
+
         public string SmallestFilePath { get; set; }
         public Int64 SmallestFileSize { get; set; }
-
-        public Dictionary<string, int> MimeTypes { get; set; }
 
         public Analytics()
         {

@@ -1,4 +1,4 @@
-﻿namespace Crawler.Business
+﻿namespace Crawler.Business.DataAccess
 {
     public interface IDropBoxProxy
     {

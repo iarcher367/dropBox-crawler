@@ -1,8 +1,8 @@
 ﻿namespace Crawler.Business.Rest
 {
-    using System.Collections.Generic;
     using RestSharp;
     using System;
+    using System.Collections.Generic;
     using System.Linq;
 
     public static class RestRequestExtension

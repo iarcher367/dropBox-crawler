@@ -43,22 +43,18 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Analytics.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="DropBoxManager.cs" />
-    <Compile Include="DropBoxProxy.cs" />
+    <Compile Include="DataAccess\DropBoxProxy.cs" />
     <Compile Include="Engines\AnalyticsEngine.cs" />
     <Compile Include="Engines\IAnalyticsEngine.cs" />
     <Compile Include="IConfig.cs" />
     <Compile Include="IDropBoxManager.cs" />
-    <Compile Include="IDropBoxProxy.cs" />
+    <Compile Include="DataAccess\IDropBoxProxy.cs" />
     <Compile Include="Engines\IOAuthEngine.cs" />
     <Compile Include="Engines\OAuthEngine.cs" />
     <Compile Include="Models\Metadata.cs" />

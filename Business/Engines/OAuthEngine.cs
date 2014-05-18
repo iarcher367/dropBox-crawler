@@ -1,12 +1,14 @@
 ﻿namespace Crawler.Business.Engines
 {
+    using log4net;
+    using RestSharp;
     using System;
     using System.Collections.Generic;
-    using Engines;
-    using RestSharp;
 
     public class OAuthEngine : IOAuthEngine
     {
+        private static readonly ILog Log = LogManager.GetLogger(typeof(OAuthEngine));
+
         private readonly IConfig _config;
         private readonly IRestClient _restClient;
 
@@ -16,7 +18,7 @@
             _restClient = restClient;
         }
 
-        public string GetAuthorizeUrl()
+        public string BuildAuthorizeUrl()
         {
             _restClient.BaseUrl = _config.OAuth2Endpoint;
 
@@ -32,7 +34,11 @@
             foreach (var param in parameters)
                 request.AddParameter(param.Key, param.Value);
 
-            return _restClient.BuildUri(request).ToString();
+            var uri = _restClient.BuildUri(request).ToString();
+            
+            Log.InfoFormat("Generated OAuth 2.0 code flow url: {0}", uri);
+
+            return uri;
         }
     }
 }
