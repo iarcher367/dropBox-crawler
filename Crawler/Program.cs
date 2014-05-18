@@ -33,7 +33,7 @@
                 }
 
                 Parallel.ForEach(accounts, x =>
-                    Console.WriteLine("Processed completed for {0}. Summary: \n{1}",
+                    Console.WriteLine("Processing completed for {0}. Summary: \n{1}",
                         x.Key,
                         manager.Crawl(x.Value))
                 );

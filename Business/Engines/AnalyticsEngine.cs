@@ -30,7 +30,7 @@
             {
                 dynamic item = JsonConvert.DeserializeObject(obj.ToString());
 
-                Log.DebugFormat("{0} processing {1}", token, item["path"].Value);
+                Log.DebugFormat("{0} processing {1}", token, item[Metadata.Path].Value);
 
                 if (item[Metadata.IsDir].Value)
                 {
@@ -105,13 +105,13 @@
             {
                 analytics.MimeTypes[mimeType]++;
 
-                Log.DebugFormat("Adding new mime type: {0}", mimeType);
+                Log.DebugFormat("Incrementing mime type {0} to {1}", mimeType, analytics.MimeTypes[mimeType]);
             }
             else
             {
                 analytics.MimeTypes.Add(mimeType, 1);
 
-                Log.DebugFormat("Incrementing mime type {0} to {1}", mimeType, analytics.MimeTypes[mimeType]);
+                Log.DebugFormat("Adding new mime type: {0}", mimeType);
             }
         }
     }
