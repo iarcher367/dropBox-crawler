@@ -14,15 +14,16 @@ The crawler implementation follows volatility-based decomposition guidelines wit
 
 Open-source libraries:  
 1.  log4net: for logging; currently outputs to crawler.log at level INFO. Only set to DEBUG if you want to see **everything**.  
-2.  Moq: for unit-testing  
+2.  Moq: for mocking dependencies  
 3.  Newtonsoft.Json: for parsing json API responses  
-4.  RestSharp: for making REST/HTTP requests  
-5.  SimpleInjector: for dependency injection  
+4.  NUnit: for unit-testing  
+5.  RestSharp: for making REST/HTTP requests  
+6.  SimpleInjector: for dependency injection  
 
 **TODO LIST**
 
 - General
-  1.  add unit and integration test suite
+  1.  expand unit test coverage and add integration test suite for data access classes
   2.  refactor dependency injection implementation to take advantage of the SimpleInjector packaging feature. The Crawler.Business library should expose a method to self-register interfaces. This allows consumers to call the method instead of manually assembling the library components.
   3.  refactor logging implementation to inject log dependency instead of hardcoding it
 

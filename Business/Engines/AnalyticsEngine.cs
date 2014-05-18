@@ -75,7 +75,7 @@
             return report;
         }
 
-        public void TrackFileSizeRange(Analytics analytics, string filePath, Int64 fileSize)
+        private void TrackFileSizeRange(Analytics analytics, string filePath, Int64 fileSize)
         {
             if (analytics.SmallestFileSize == 0 && String.IsNullOrEmpty(analytics.SmallestFilePath))
             {
@@ -99,7 +99,7 @@
             }
         }
 
-        public void TrackMimeTypes(Analytics analytics, string mimeType)
+        private void TrackMimeTypes(Analytics analytics, string mimeType)
         {
             if (analytics.MimeTypes.ContainsKey(mimeType))
             {
