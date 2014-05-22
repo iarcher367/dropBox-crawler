@@ -29,6 +29,7 @@ Open-source libraries:
 
 - AnalyticsEngine
   1.  handle edge case of multiple files having the same size for both largest and smallest files
+  2.  investigate iterative implementation if extremely nested accounts result in stack overflow exceptions
 
 - DropBoxManager
   1.  making AnalyzeFolder() async may speed up processing for large accounts; ensure thread-safe incrementing
